@@ -1,916 +1,1902 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="SPARC Scholarship at Illinois Institute of Technology">
-<title>SPARC | Illinois Institute of Technology</title>
-
-<style>
-:root {
-    --navy: #101b32;
-    --navy2: #1d345b;
-    --gold: #f4c542;
-    --gold-dark: #a77d00;
-    --text: #142033;
-    --muted: #5f6b7a;
-    --light: #f5f7fa;
-    --white: #fff;
-    --border: #dfe4ea;
-    --shadow: 0 12px 30px rgba(16,27,50,.10);
-    --radius: 14px;
-    --max: 1180px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--text);
-    line-height: 1.65;
-    background: white;
-}
-
-a {
-    color: inherit;
-}
-
-.container {
-    width: min(var(--max), 90%);
-    margin: auto;
-}
-
-/* ================= NAVIGATION ================= */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(16,27,50,.98);
-    border-bottom: 1px solid rgba(255,255,255,.1);
-}
-
-.nav {
-    min-height: 76px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: white;
-    text-decoration: none;
-}
-
-.brand-mark {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--gold);
-    display: grid;
-    place-items: center;
-    font-weight: 800;
-    font-size: 14px;
-}
-
-.brand-text strong {
-    display: block;
-    font-size: 22px;
-    letter-spacing: .05em;
-}
-
-.brand-text small {
-    color: #d6deeb;
-    font-size: 9px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    list-style: none;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.nav-links a:hover {
-    color: var(--gold);
-}
-
-.nav-cta {
-    padding: 9px 15px;
-    border: 1px solid var(--gold);
-    border-radius: 6px;
-    color: var(--gold) !important;
-}
-
-.menu-toggle {
-    display: none;
-    background: transparent;
-    color: white;
-    border: 1px solid #667085;
-    padding: 8px 11px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-/* ================= HERO ================= */
-
-.hero {
-    color: white;
-    background:
-        radial-gradient(circle at 85% 20%, rgba(244,197,66,.17), transparent 27%),
-        linear-gradient(120deg, var(--navy), var(--navy2));
-}
-
-.hero-inner {
-    min-height: 650px;
-    display: grid;
-    grid-template-columns: 1.08fr .92fr;
-    align-items: center;
-    gap: 70px;
-    padding: 80px 0;
-}
-
-.eyebrow {
-    color: var(--gold);
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    margin-bottom: 22px;
-}
-
-.eyebrow::before {
-    content: "";
-    display: inline-block;
-    width: 32px;
-    height: 2px;
-    background: var(--gold);
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
-.hero h1 {
-    font-size: clamp(42px, 5vw, 68px);
-    line-height: 1.04;
-    letter-spacing: -.035em;
-    margin-bottom: 25px;
-}
-
-.hero h1 span {
-    color: var(--gold);
-}
-
-.hero-copy {
-    max-width: 700px;
-    color: #dbe3ef;
-    font-size: 18px;
-    margin-bottom: 32px;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.button {
-    min-height: 48px;
-    padding: 0 21px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 7px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 800;
-    transition: .2s;
-}
-
-.button:hover {
-    transform: translateY(-2px);
-}
-
-.button-primary {
-    background: var(--gold);
-    color: var(--navy);
-}
-
-.button-outline {
-    color: white;
-    border: 1px solid rgba(255,255,255,.7);
-}
-
-/* HERO CARD */
-
-.hero-panel {
-    display: flex;
-    justify-content: center;
-}
-
-.hero-card {
-    width: min(430px,100%);
-    min-height: 390px;
-    padding: 38px;
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 22px;
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.13),
-        rgba(255,255,255,.035)
-    );
-    box-shadow: 0 30px 70px rgba(0,0,0,.25);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-card::before {
-    content: "";
-    position: absolute;
-    width: 330px;
-    height: 330px;
-    right: -150px;
-    top: -130px;
-    border: 1px solid rgba(244,197,66,.45);
-    border-radius: 50%;
-}
-
-.hero-card-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-card-label {
-    color: var(--gold);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-}
-
-.hero-card h2 {
-    font-size: 38px;
-    line-height: 1.12;
-    margin: 18px 0;
-}
-
-.hero-card p {
-    color: #dbe3ef;
-}
-
-.hero-stat {
-    margin-top: 30px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(255,255,255,.18);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.hero-stat strong {
-    display: block;
-    color: var(--gold);
-    font-size: 25px;
-}
-
-.hero-stat span {
-    color: #c9d3e1;
-    font-size: 12px;
-}
-
-/* ================= GENERAL SECTIONS ================= */
-
-section {
-    padding: 88px 0;
-}
-
-.section-kicker {
-    color: var(--gold-dark);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.section-title {
-    font-size: clamp(32px,4vw,46px);
-    line-height: 1.12;
-    letter-spacing: -.025em;
-    margin-bottom: 16px;
-}
-
-.section-intro {
-    max-width: 790px;
-    color: var(--muted);
-    font-size: 17px;
-    margin-bottom: 44px;
-}
-
-/* ================= SCHOLARSHIP ================= */
-
-.scholarship {
-    background: var(--light);
-}
-
-.scholarship-header {
-    display: grid;
-    grid-template-columns: 1fr .72fr;
-    gap: 70px;
-    align-items: end;
-    margin-bottom: 45px;
-}
-
-.scholarship-header .section-intro {
-    margin-bottom: 0;
-}
-
-.eligibility-note {
-    padding: 23px;
-    background: white;
-    border-left: 4px solid var(--gold);
-    box-shadow: var(--shadow);
-    border-radius: 0 var(--radius) var(--radius) 0;
-}
-
-.eligibility-note strong {
-    display: block;
-    margin-bottom: 6px;
-}
-
-.degree-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 18px;
-}
-
-.degree-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 28px;
-    min-height: 190px;
-    position: relative;
-    overflow: hidden;
-    transition: .2s;
-}
-
-.degree-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 5px;
-    height: 100%;
-    background: var(--gold);
-}
-
-.degree-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow);
-}
-
-.degree-number {
-    color: #9a7b13;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .1em;
-    margin-bottom: 20px;
-}
-
-.degree-card h3 {
-    font-size: 21px;
-    margin-bottom: 9px;
-}
-
-.degree-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* ================= BENEFITS ================= */
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 18px;
-}
-
-.benefit-card {
-    padding: 30px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: white;
-    min-height: 235px;
-}
-
-.benefit-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: #fff6cf;
-    color: #765b00;
-    display: grid;
-    place-items: center;
-    font-weight: 900;
-    margin-bottom: 23px;
-}
-
-.benefit-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.benefit-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* ================= TIMELINE ================= */
-
-.timeline-section {
-    background: var(--navy);
-    color: white;
-}
-
-.timeline-section .section-kicker {
-    color: var(--gold);
-}
-
-.timeline-section .section-intro {
-    color: #cbd5e1;
-}
-
-.timeline {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    position: relative;
-    margin-top: 55px;
-}
-
-.timeline::before {
-    content: "";
-    position: absolute;
-    top: 24px;
-    left: 8%;
-    right: 8%;
-    height: 1px;
-    background: rgba(255,255,255,.25);
-}
-
-.timeline-step {
-    position: relative;
-    padding-right: 20px;
-}
-
-.timeline-dot {
-    width: 49px;
-    height: 49px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: var(--gold);
-    color: var(--navy);
-    font-weight: 900;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 25px;
-}
-
-.timeline-step h3 {
-    font-size: 19px;
-    margin-bottom: 9px;
-}
-
-.timeline-step p {
-    color: #cbd5e1;
-    font-size: 14px;
-    max-width: 245px;
-}
-
-/* ================= MENTORING ================= */
-
-.mentor-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 22px;
-}
-
-.mentor-card {
-    padding: 34px;
-    border-radius: var(--radius);
-    background: var(--light);
-    border: 1px solid var(--border);
-}
-
-.mentor-tag {
-    color: #876900;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-}
-
-.mentor-card h3 {
-    font-size: 23px;
-    margin-bottom: 12px;
-}
-
-.mentor-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.mentor-callout {
-    margin-top: 24px;
-    padding: 22px 26px;
-    border-left: 4px solid var(--gold);
-    background: #fffaf0;
-    color: #4e4a3d;
-}
-
-/* ================= ACTIVITIES ================= */
-
-.activities {
-    background: var(--light);
-}
-
-.activity-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 18px;
-}
-
-.activity-card {
-    background: white;
-    border: 1px solid var(--border);
-    padding: 25px;
-    border-radius: var(--radius);
-}
-
-.activity-card h3 {
-    margin-bottom: 8px;
-}
-
-.activity-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* ================= NEWS ================= */
-
-.news-grid {
-    display: grid;
-    grid-template-columns: 1.25fr .75fr;
-    gap: 24px;
-}
-
-.news-card {
-    border-radius: var(--radius);
-    padding: 34px;
-    border: 1px solid var(--border);
-    background: white;
-}
-
-.news-card.featured {
-    background: linear-gradient(135deg,var(--navy),#243e69);
-    color: white;
-    border: none;
-    box-shadow: var(--shadow);
-}
-
-.news-label {
-    color: var(--gold);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: .14em;
-    font-weight: 800;
-    margin-bottom: 16px;
-}
-
-.news-card h3 {
-    font-size: 25px;
-    line-height: 1.25;
-    margin-bottom: 13px;
-}
-
-.news-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.news-card.featured p {
-    color: #d7e0ec;
-}
-
-/* ================= FAQ ================= */
-
-.faq {
-    background: var(--light);
-}
-
-.faq-list {
-    max-width: 900px;
-}
-
-details {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-bottom: 11px;
-    padding: 19px 22px;
-}
-
-summary {
-    cursor: pointer;
-    font-weight: 700;
-    list-style: none;
-    position: relative;
-    padding-right: 25px;
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
-summary::after {
-    content: "+";
-    position: absolute;
-    right: 0;
-    top: -2px;
-    font-size: 22px;
-    color: #7b6518;
-}
-
-details[open] summary::after {
-    content: "−";
-}
-
-details p {
-    margin-top: 14px;
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* ================= CONTACT ================= */
-
-.contact {
-    background:
-        radial-gradient(circle at 80% 20%,rgba(244,197,66,.18),transparent 25%),
-        var(--navy2);
-    color: white;
-    text-align: center;
-}
-
-.contact .section-title {
-    max-width: 650px;
-    margin: auto auto 13px;
-}
-
-.contact p {
-    color: #d4deea;
-    margin-bottom: 26px;
-}
-
-.contact-email {
-    display: inline-block;
-    color: var(--gold);
-    font-size: 20px;
-    font-weight: 800;
-    text-decoration: none;
-    margin-bottom: 25px;
-}
-
-/* ================= FOOTER ================= */
-
-footer {
-    background: #0a1223;
-    color: #aeb9c8;
-    padding: 30px 0;
-}
-
-.footer-inner {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    font-size: 13px;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1000px) {
-
-    .hero-inner {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-panel {
-        justify-content: flex-start;
-    }
-
-    .scholarship-header,
-    .news-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .benefits-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .degree-grid,
-    .activity-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .timeline {
-        grid-template-columns: repeat(2,1fr);
-        gap: 35px 20px;
-    }
-
-    .timeline::before {
-        display: none;
-    }
-}
-
-@media(max-width:760px) {
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
-        padding: 20px 5%;
-        background: var(--navy);
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
-
-    .nav-links li {
-        padding: 13px 0;
-        border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .nav-cta {
-        display: block;
-        text-align: center;
-    }
-
-    section {
-        padding: 65px 0;
-    }
-
-    .hero-inner {
-        padding: 65px 0;
-    }
-
-    .degree-grid,
-    .benefits-grid,
-    .mentor-grid,
-    .activity-grid,
-    .timeline {
-        grid-template-columns: 1fr;
-    }
-
-    .timeline-step {
-        padding-right: 0;
-    }
-
-    .timeline-step p {
-        max-width: none;
-    }
-
-    .footer-inner {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-@media(max-width:480px) {
-
-    .brand-text small {
-        display: none;
-    }
-
-    .hero h1 {
-        font-size: 39px;
-    }
-
-    .hero-copy {
-        font-size: 16px;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-    }
-
-    .button {
-        width: 100%;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="SPARC Scholarship at Illinois Institute of Technology">
+
+    <title>SPARC Scholarship | Illinois Institute of Technology</title>
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        :root {
+            --navy: #101b32;
+            --navy-light: #1e355c;
+            --blue: #294b7d;
+
+            --gold: #f4c542;
+            --gold-light: #fff5c7;
+            --gold-dark: #9b7600;
+
+            --white: #ffffff;
+            --off-white: #f7f8fa;
+            --gray-50: #f3f5f8;
+            --gray-100: #e9edf2;
+            --gray-200: #d9dfe7;
+            --gray-500: #667085;
+            --gray-700: #344054;
+
+            --text: #172033;
+
+            --shadow-sm:
+                0 4px 12px rgba(16, 27, 50, 0.07);
+
+            --shadow:
+                0 15px 40px rgba(16, 27, 50, 0.10);
+
+            --shadow-lg:
+                0 25px 70px rgba(16, 27, 50, 0.18);
+
+            --radius: 14px;
+
+            --max-width: 1180px;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            color: var(--text);
+
+            background: var(--white);
+
+            line-height: 1.65;
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+        .container {
+            width: min(
+                var(--max-width),
+                90%
+            );
+
+            margin: 0 auto;
+        }
+
+
+        section {
+            padding: 90px 0;
+        }
+
+
+        /* =====================================================
+           TYPOGRAPHY
+        ===================================================== */
+
+        .section-label {
+            color: var(--gold-dark);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.16em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+
+        .section-title {
+            font-size:
+                clamp(32px, 4vw, 48px);
+
+            line-height: 1.1;
+
+            letter-spacing: -0.03em;
+
+            margin-bottom: 18px;
+        }
+
+
+        .section-intro {
+            max-width: 800px;
+
+            color: var(--gray-500);
+
+            font-size: 17px;
+
+            margin-bottom: 45px;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background:
+                rgba(16, 27, 50, 0.98);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.10);
+        }
+
+
+        .nav {
+            min-height: 76px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        .brand {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            text-decoration: none;
+
+            color: white;
+
+            flex-shrink: 0;
+        }
+
+
+        .brand-mark {
+            width: 42px;
+
+            height: 42px;
+
+            border:
+                2px solid
+                var(--gold);
+
+            display: grid;
+
+            place-items: center;
+
+            font-weight: 900;
+
+            font-size: 13px;
+
+            letter-spacing: -1px;
+        }
+
+
+        .brand-name {
+            font-size: 22px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.05em;
+        }
+
+
+        .brand-subtitle {
+            color: #cbd5e1;
+
+            display: block;
+
+            font-size: 9px;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+        }
+
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 23px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: color .2s ease;
+        }
+
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+
+        .nav-apply {
+            border:
+                1px solid
+                var(--gold);
+
+            color:
+                var(--gold) !important;
+
+            padding:
+                9px 15px;
+
+            border-radius: 6px;
+        }
+
+
+        .menu-button {
+            display: none;
+
+            background: transparent;
+
+            color: white;
+
+            border:
+                1px solid
+                rgba(255,255,255,.35);
+
+            padding: 7px 10px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 20px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+
+            overflow: hidden;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 82% 20%,
+                    rgba(244,197,66,.18),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    125deg,
+                    var(--navy) 0%,
+                    #172746 55%,
+                    var(--navy-light) 100%
+                );
+        }
+
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            border:
+                1px solid
+                rgba(244,197,66,.15);
+
+            border-radius: 50%;
+
+            right: -220px;
+
+            bottom: -260px;
+        }
+
+
+        .hero-inner {
+            min-height: 680px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.08fr
+                .92fr;
+
+            align-items: center;
+
+            gap: 70px;
+
+            padding:
+                85px 0;
+        }
+
+
+        .hero-content {
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .hero-label {
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            color: var(--gold);
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            letter-spacing: .16em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 22px;
+        }
+
+
+        .hero-label::before {
+            content: "";
+
+            width: 35px;
+
+            height: 2px;
+
+            background: var(--gold);
+        }
+
+
+        .hero h1 {
+            font-size:
+                clamp(43px, 5vw, 70px);
+
+            line-height: 1.03;
+
+            letter-spacing: -.04em;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+
+        .hero-description {
+            max-width: 720px;
+
+            color: #dbe4f0;
+
+            font-size: 18px;
+
+            margin-bottom: 32px;
+        }
+
+
+        .hero-buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+
+        .button {
+            min-height: 49px;
+
+            padding:
+                0 22px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            transition:
+                transform .2s ease,
+                background .2s ease;
+        }
+
+
+        .button:hover {
+            transform:
+                translateY(-2px);
+        }
+
+
+        .button-primary {
+            background: var(--gold);
+
+            color: var(--navy);
+        }
+
+
+        .button-primary:hover {
+            background: #ffd957;
+        }
+
+
+        .button-outline {
+            border:
+                1px solid
+                rgba(255,255,255,.65);
+
+            color: white;
+        }
+
+
+        .button-outline:hover {
+            background:
+                rgba(255,255,255,.08);
+        }
+
+
+        /* HERO SCHOLARSHIP CARD */
+
+        .hero-visual {
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            justify-content: center;
+        }
+
+
+        .hero-card {
+            width:
+                min(440px, 100%);
+
+            min-height: 430px;
+
+            padding: 40px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255,255,255,.20);
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.14),
+                    rgba(255,255,255,.035)
+                );
+
+            box-shadow:
+                var(--shadow-lg);
+        }
+
+
+        .hero-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            right: -170px;
+
+            top: -160px;
+
+            border:
+                1px solid
+                rgba(244,197,66,.40);
+
+            border-radius: 50%;
+        }
+
+
+        .hero-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+
+            height: 250px;
+
+            left: -160px;
+
+            bottom: -150px;
+
+            border:
+                1px solid
+                rgba(244,197,66,.22);
+
+            border-radius: 50%;
+        }
+
+
+        .hero-card-content {
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .card-label {
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: .18em;
+
+            text-transform: uppercase;
+        }
+
+
+        .hero-card h2 {
+            font-size: 38px;
+
+            line-height: 1.1;
+
+            margin:
+                18px 0;
+        }
+
+
+        .hero-card p {
+            color: #d9e2ee;
+
+            font-size: 15px;
+        }
+
+
+        .amounts {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 14px;
+
+            margin-top: 32px;
+
+            padding-top: 25px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.18);
+        }
+
+
+        .amount {
+            padding: 17px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,255,255,.07);
+        }
+
+
+        .amount strong {
+            display: block;
+
+            color: var(--gold);
+
+            font-size: 27px;
+
+            line-height: 1.1;
+
+            margin-bottom: 5px;
+        }
+
+
+        .amount span {
+            color: #cbd5e1;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           SCHOLARSHIP AMOUNTS
+        ===================================================== */
+
+        .amount-section {
+            background: var(--white);
+        }
+
+
+        .amount-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 22px;
+        }
+
+
+        .amount-card {
+            position: relative;
+
+            padding: 38px;
+
+            border-radius: var(--radius);
+
+            border:
+                1px solid
+                var(--gray-200);
+
+            background: white;
+
+            box-shadow: var(--shadow-sm);
+
+            overflow: hidden;
+        }
+
+
+        .amount-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            width: 6px;
+
+            height: 100%;
+
+            background: var(--gold);
+        }
+
+
+        .amount-card-label {
+            color: var(--gold-dark);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .12em;
+
+            margin-bottom: 10px;
+        }
+
+
+        .amount-card h3 {
+            font-size: 48px;
+
+            line-height: 1;
+
+            margin-bottom: 12px;
+        }
+
+
+        .amount-card h3 span {
+            font-size: 18px;
+
+            color: var(--gray-500);
+
+            font-weight: 500;
+        }
+
+
+        .amount-card p {
+            color: var(--gray-500);
+
+            font-size: 15px;
+        }
+
+
+        .funding-note {
+            margin-top: 25px;
+
+            padding: 20px 24px;
+
+            border-radius: 10px;
+
+            background: var(--gold-light);
+
+            color: var(--gray-700);
+
+            border-left:
+                4px solid
+                var(--gold);
+        }
+
+
+        /* =====================================================
+           ELIGIBILITY
+        ===================================================== */
+
+        .eligibility {
+            background: var(--off-white);
+        }
+
+
+        .eligibility-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 55px;
+
+            align-items: center;
+        }
+
+
+        .eligibility-list {
+            display: grid;
+
+            gap: 14px;
+        }
+
+
+        .eligibility-item {
+            display: flex;
+
+            gap: 16px;
+
+            padding: 21px;
+
+            background: white;
+
+            border:
+                1px solid
+                var(--gray-200);
+
+            border-radius: 10px;
+        }
+
+
+        .check {
+            width: 30px;
+
+            height: 30px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background: var(--gold);
+
+            color: var(--navy);
+
+            display: grid;
+
+            place-items: center;
+
+            font-weight: 900;
+        }
+
+
+        .eligibility-item h3 {
+            font-size: 17px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .eligibility-item p {
+            color: var(--gray-500);
+
+            font-size: 14px;
+        }
+
+
+        .eligibility-panel {
+            padding: 40px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    140deg,
+                    var(--navy),
+                    var(--navy-light)
+                );
+
+            border-radius: 18px;
+
+            box-shadow: var(--shadow-lg);
+        }
+
+
+        .eligibility-panel h3 {
+            font-size: 28px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .eligibility-panel p {
+            color: #d7e0eb;
+
+            margin-bottom: 25px;
+        }
+
+
+        .fa-note {
+            padding: 17px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border-left:
+                3px solid
+                var(--gold);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           QUALIFYING PROGRAMS
+        ===================================================== */
+
+        .programs {
+            background: white;
+        }
+
+
+        .program-section-title {
+            font-size: 25px;
+
+            margin:
+                35px 0 20px;
+        }
+
+
+        .program-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .program-card {
+            padding: 22px;
+
+            min-height: 100px;
+
+            border:
+                1px solid
+                var(--gray-200);
+
+            border-radius: 10px;
+
+            background: white;
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
+        }
+
+
+        .program-card:hover {
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .program-card .program-type {
+            color: var(--gold-dark);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: .12em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 7px;
+        }
+
+
+        .program-card h3 {
+            font-size: 16px;
+
+            line-height: 1.35;
+        }
+
+
+        .program-note {
+            margin-top: 25px;
+
+            color: var(--gray-500);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           BENEFITS
+        ===================================================== */
+
+        .benefits {
+            background: var(--off-white);
+        }
+
+
+        .benefit-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .benefit-card {
+            padding: 29px;
+
+            background: white;
+
+            border:
+                1px solid
+                var(--gray-200);
+
+            border-radius: var(--radius);
+
+            min-height: 260px;
+        }
+
+
+        .benefit-number {
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            background: var(--gold-light);
+
+            color: var(--gold-dark);
+
+            font-weight: 900;
+
+            margin-bottom: 23px;
+        }
+
+
+        .benefit-card h3 {
+            font-size: 19px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .benefit-card p {
+            color: var(--gray-500);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           MENTORING
+        ===================================================== */
+
+        .mentoring {
+            background: white;
+        }
+
+
+        .mentor-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .mentor-card {
+            padding: 34px;
+
+            background: var(--off-white);
+
+            border:
+                1px solid
+                var(--gray-200);
+
+            border-radius: var(--radius);
+        }
+
+
+        .mentor-tag {
+            color: var(--gold-dark);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: .13em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 14px;
+        }
+
+
+        .mentor-card h3 {
+            font-size: 23px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .mentor-card p {
+            color: var(--gray-500);
+
+            font-size: 14px;
+        }
+
+
+        .mentor-callout {
+            margin-top: 22px;
+
+            padding: 23px 26px;
+
+            background:
+                var(--gold-light);
+
+            border-left:
+                4px solid
+                var(--gold);
+
+            color: var(--gray-700);
+        }
+
+
+        /* =====================================================
+           ACTIVITIES
+        ===================================================== */
+
+        .activities {
+            background: var(--off-white);
+        }
+
+
+        .activity-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .activity-card {
+            padding: 27px;
+
+            background: white;
+
+            border:
+                1px solid
+                var(--gray-200);
+
+            border-radius: var(--radius);
+        }
+
+
+        .activity-icon {
+            width: 40px;
+
+            height: 40px;
+
+            display: grid;
+
+            place-items: center;
+
+            background: var(--navy);
+
+            color: var(--gold);
+
+            border-radius: 8px;
+
+            font-weight: 900;
+
+            margin-bottom: 18px;
+        }
+
+
+        .activity-card h3 {
+            font-size: 19px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .activity-card p {
+            color: var(--gray-500);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           NSF NEWS
+        ===================================================== */
+
+        .news {
+            background: white;
+        }
+
+
+        .news-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.3fr
+                .7fr;
+
+            gap: 22px;
+        }
+
+
+        .news-card {
+            padding: 38px;
+
+            border-radius: var(--radius);
+
+            border:
+                1px solid
+                var(--gray-200);
+        }
+
+
+        .news-card.featured {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--navy),
+                    var(--navy-light)
+                );
+
+            border: none;
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .news-label {
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .14em;
+
+            margin-bottom: 16px;
+        }
+
+
+        .news-card h3 {
+            font-size: 28px;
+
+            line-height: 1.2;
+
+            margin-bottom: 15px;
+        }
+
+
+        .news-card p {
+            color: var(--gray-500);
+
+            font-size: 14px;
+        }
+
+
+        .news-card.featured p {
+            color: #d6dfeb;
+        }
+
+
+        .news-link {
+            display: inline-block;
+
+            margin-top: 22px;
+
+            color: var(--gold);
+
+            font-weight: 800;
+
+            text-decoration: none;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           LEADERSHIP
+        ===================================================== */
+
+        .leadership {
+            background: var(--off-white);
+        }
+
+
+        .leadership-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .leader-card {
+            background: white;
+
+            border:
+                1px solid
+                var(--gray-200);
+
+            border-radius: var(--radius);
+
+            overflow: hidden;
+        }
+
+
+        .leader-photo {
+            height: 210px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--navy),
+                    var(--blue)
+                );
+
+            display: grid;
+
+            place-items: center;
+
+            color: var(--gold);
+
+            font-size: 45px;
+
+            font-weight: 800;
+        }
+
+
+        .leader-info {
+            padding: 24px;
+        }
+
+
+        .leader-info h3 {
+            font-size: 19px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .leader-info p {
+            color: var(--gray-500);
+
+            font-size: 13px;
+
+            line-height: 1.55;
+        }
+
+
+        /* =====================================================
+           FAQ
+        ===================================================== */
+
+        .faq {
+            background: white;
+        }
+
+
+        .faq-list {
+            max-width: 900px;
+        }
+
+
+        details {
+            background: white;
+
+            border:
+                1px solid
+                var(--gray-200);
+
+            border-radius: 10px;
+
+            margin-bottom: 11px;
+
+            padding:
+                20px 23px;
+        }
+
+
+        summary {
+            cursor: pointer;
+
+            font-weight: 700;
+
+            list-style: none;
+
+            position: relative;
+
+            padding-right: 30px;
+        }
+
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+
+        summary::after {
+            content: "+";
+
+            position: absolute;
+
+            right: 0;
+
+            top: -4px;
+
+            color: var(--gold-dark);
+
+            font-size: 23px;
+        }
+
+
+        details[open] summary::after {
+            content: "−";
+        }
+
+
+        details p {
+            margin-top: 14px;
+
+            color: var(--gray-500);
+
+            font-size: 14px;
+
+            max-width: 800px;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact {
+            color: white;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(244,197,66,.18),
+                    transparent 25%
+                ),
+                var(--navy-light);
+        }
+
+
+        .contact .section-label {
+            color: var(--gold);
+        }
+
+
+        .contact .section-title {
+            max-width: 700px;
+
+            margin:
+                0 auto 14px;
+        }
+
+
+        .contact p {
+            color: #d5deea;
+
+            margin-bottom: 24px;
+        }
+
+
+        .contact-email {
+            display: inline-block;
+
+            color: var(--gold);
+
+            font-size: 21px;
+
+            font-weight: 800;
+
+            text-decoration: none;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #0a1223;
+
+            color: #aeb9c8;
+
+            padding: 30px 0;
+        }
+
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr
+                1fr;
+
+            gap: 30px;
+        }
+
+
+        .footer-title {
+            color: white;
+
+            font-size: 15px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .footer-grid p,
+        .footer-grid a {
+            font-size: 12px;
+
+            color: #aeb9c8;
+
+            text-decoration: none;
+        }
+
+
+        .footer-grid a:hover {
+            color: var(--gold);
+        }
+
+
+        .copyright {
+            border-top:
+                1px solid
+                rgba(255,255,255,.10);
+
+            margin-top: 25px;
+
+            padding-top: 20px;
+
+            color: #788598;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .nav-links {
+                gap: 14px;
+            }
+
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+
+            .hero-visual {
+                justify-content: flex-start;
+            }
+
+
+            .scholarship-header,
+            .eligibility-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .benefit-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .leadership-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+        }
+
+
+        @media (max-width: 850px) {
+
+            .menu-button {
+                display: block;
+            }
+
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 76px;
+
+                left: 0;
+
+                right: 0;
+
+                background: var(--navy);
+
+                padding:
+                    15px 5% 25px;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 0;
+            }
+
+
+            .nav-links.open {
+                display: flex;
+            }
+
+
+            .nav-links li {
+                padding: 13px 0;
+
+                border-bottom:
+                    1px solid
+                    rgba(255,255,255,.08);
+            }
+
+
+            .nav-apply {
+                display: block;
+
+                text-align: center;
+            }
+
+
+            .degree-grid,
+            .program-grid,
+            .mentor-grid,
+            .activity-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .amount-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 65px 0;
+            }
+
+
+            .brand-subtitle {
+                display: none;
+            }
+
+
+            .hero-inner {
+                min-height: auto;
+
+                padding:
+                    65px 0;
+            }
+
+
+            .hero h1 {
+                font-size: 41px;
+            }
+
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+
+            .button {
+                width: 100%;
+            }
+
+
+            .hero-card {
+                min-height: 350px;
+
+                padding: 30px;
+            }
+
+
+            .amounts {
+                grid-template-columns: 1fr;
+            }
+
+
+            .degree-grid,
+            .program-grid,
+            .benefit-grid,
+            .mentor-grid,
+            .activity-grid,
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .leader-photo {
+                height: 180px;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
 <header>
+
     <div class="container nav">
 
-        <a href="#top" class="brand">
-            <div class="brand-mark">SP</div>
+        <a
+            href="#top"
+            class="brand"
+            aria-label="SPARC home">
 
-            <div class="brand-text">
-                <strong>SPARC</strong>
-                <small>Illinois Institute of Technology</small>
+            <div class="brand-mark">
+                SP
             </div>
+
+            <div>
+                <div class="brand-name">
+                    SPARC
+                </div>
+
+                <span class="brand-subtitle">
+                    Illinois Institute of Technology
+                </span>
+            </div>
+
         </a>
 
+
         <button
-            class="menu-toggle"
+            class="menu-button"
             aria-label="Open navigation"
             aria-expanded="false">
+
             ☰
+
         </button>
+
 
         <ul class="nav-links">
 
             <li>
-                <a href="#about">About</a>
+                <a href="#scholarship">
+                    Scholarship
+                </a>
             </li>
 
             <li>
-                <a href="#scholarship">Scholarship</a>
+                <a href="#eligibility">
+                    Eligibility
+                </a>
             </li>
 
             <li>
-                <a href="#mentoring">Mentoring</a>
+                <a href="#programs">
+                    Programs
+                </a>
             </li>
 
             <li>
-                <a href="#activities">Activities &amp; Events</a>
+                <a href="#mentoring">
+                    Mentoring
+                </a>
             </li>
 
             <li>
-                <a href="#news">News</a>
+                <a href="#activities">
+                    Activities
+                </a>
             </li>
 
             <li>
-                <a href="#faq">FAQ</a>
+                <a href="#leadership">
+                    Leadership
+                </a>
             </li>
 
             <li>
-                <a href="#contact" class="nav-cta">Contact</a>
+                <a href="#faq">
+                    FAQ
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#contact"
+                    class="nav-apply">
+                    Contact
+                </a>
             </li>
 
         </ul>
 
     </div>
+
 </header>
 
 
 <main id="top">
 
-<!-- ================= HERO ================= -->
 
-<section class="hero" id="about">
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
 
     <div class="container hero-inner">
 
-        <div>
 
-            <div class="eyebrow">
+        <div class="hero-content">
+
+            <div class="hero-label">
                 Illinois Institute of Technology
             </div>
+
 
             <h1>
                 Supporting Pathways for
@@ -918,26 +1904,34 @@ footer {
                 in Computing
             </h1>
 
-            <p class="hero-copy">
-                The SPARC Scholarship supports academically talented
-                domestic students pursuing bachelor's degrees in AI,
-                applied mathematics, computer science, cybersecurity,
-                data science, and statistics, with the option for
-                continued support for a combined master's degree.
+
+            <p class="hero-description">
+
+                SPARC Scholarships support academically talented
+                students from low-income families pursuing STEM
+                degrees through a prestigious National Science
+                Foundation grant.
+
             </p>
 
-            <div class="hero-actions">
+
+            <div class="hero-buttons">
 
                 <a
                     href="#scholarship"
                     class="button button-primary">
+
                     Explore the Scholarship
+
                 </a>
 
+
                 <a
-                    href="#faq"
+                    href="#programs"
                     class="button button-outline">
-                    View FAQs
+
+                    View Programs
+
                 </a>
 
             </div>
@@ -945,41 +1939,58 @@ footer {
         </div>
 
 
-        <div class="hero-panel">
+        <div class="hero-visual">
 
             <div class="hero-card">
 
                 <div class="hero-card-content">
 
-                    <div class="hero-card-label">
+                    <div class="card-label">
                         SPARC Scholarship
                     </div>
 
+
                     <h2>
-                        Build your future in computing.
+                        Invest in your future.
                     </h2>
 
+
                     <p>
-                        Academic guidance, career coaching,
-                        peer mentorship, and financial support
-                        designed to help scholars thrive.
+
+                        Financial support combined with
+                        faculty, industry, and peer
+                        mentorship.
+
                     </p>
 
-                    <div class="hero-stat">
 
-                        <div>
-                            <strong>6</strong>
+                    <div class="amounts">
+
+                        <div class="amount">
+
+                            <strong>
+                                $15K
+                            </strong>
+
                             <span>
-                                Qualified academic fields
+                                Up to annually
+                                for bachelor's study
                             </span>
+
                         </div>
 
-                        <div>
-                            <strong>4+</strong>
+
+                        <div class="amount">
+
+                            <strong>
+                                $20K
+                            </strong>
+
                             <span>
-                                Years of undergraduate support,
-                                when eligible
+                                Up to annually
+                                for master's continuation
                             </span>
+
                         </div>
 
                     </div>
@@ -995,204 +2006,545 @@ footer {
 </section>
 
 
-<!-- ================= SCHOLARSHIP ================= -->
+<!-- =========================================================
+     SCHOLARSHIP AMOUNTS
+========================================================= -->
 
 <section
-    class="scholarship"
+    class="amount-section"
     id="scholarship">
 
     <div class="container">
 
-        <div class="scholarship-header">
+        <div class="section-label">
+            Scholarship support
+        </div>
 
-            <div>
 
-                <div class="section-kicker">
-                    The opportunity
+        <h2 class="section-title">
+            Support for your STEM journey.
+        </h2>
+
+
+        <p class="section-intro">
+
+            Qualified enrolling students may receive
+            significant financial support toward their
+            undergraduate education, with the opportunity
+            to continue into an eligible master's degree.
+
+        </p>
+
+
+        <div class="amount-grid">
+
+
+            <article class="amount-card">
+
+                <div class="amount-card-label">
+                    Bachelor's degree
                 </div>
 
-                <h2 class="section-title">
-                    The SPARC Scholarship
-                </h2>
 
-                <p class="section-intro">
-                    High school graduates and transfer students
-                    from low-income families who demonstrate
-                    academic merit are automatically considered
-                    for the SPARC Scholarship.
+                <h3>
+                    $15,000
+                    <span>/ year</span>
+                </h3>
+
+
+                <p>
+
+                    Scholarships of up to $15,000 annually
+                    are available to qualified students
+                    pursuing a bachelor's degree.
+
                 </p>
 
+            </article>
+
+
+            <article class="amount-card">
+
+                <div class="amount-card-label">
+                    Master's continuation
+                </div>
+
+
+                <h3>
+                    $20,000
+                    <span>/ year</span>
+                </h3>
+
+
+                <p>
+
+                    Eligible SPARC scholars may continue
+                    their studies toward an eligible
+                    master's degree with scholarships of
+                    up to $20,000.
+
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <div class="funding-note">
+
+            <strong>
+                What can the scholarship support?
+            </strong>
+
+            Scholarship funds may cover tuition and fees
+            and may also be used to defray costs of room
+            and board, textbooks, transportation, or even
+            laptops.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ELIGIBILITY
+========================================================= -->
+
+<section
+    class="eligibility"
+    id="eligibility">
+
+    <div class="container eligibility-grid">
+
+
+        <div>
+
+            <div class="section-label">
+                Who can be considered?
             </div>
 
-            <div class="eligibility-note">
 
-                <strong>
-                    No separate SPARC application
-                </strong>
+            <h2 class="section-title">
+                Built for talented students with financial need.
+            </h2>
 
-                <span>
-                    Students follow the university admissions
-                    process and complete FAFSA as required
-                    for consideration.
-                </span>
+
+            <p class="section-intro">
+
+                SPARC scholarships are available to enrolling
+                students who meet the program's academic,
+                financial, and program requirements.
+
+            </p>
+
+
+            <div class="eligibility-list">
+
+
+                <div class="eligibility-item">
+
+                    <div class="check">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            High school graduates
+                        </h3>
+
+                        <p>
+                            Students entering an eligible
+                            bachelor's degree program.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="eligibility-item">
+
+                    <div class="check">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Community college transfer students
+                        </h3>
+
+                        <p>
+                            Qualified community college
+                            transfer students may be considered.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="eligibility-item">
+
+                    <div class="check">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Low-income families
+                        </h3>
+
+                        <p>
+                            Students must meet the program's
+                            financial eligibility requirements.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="eligibility-item">
+
+                    <div class="check">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Pell Grant eligibility
+                        </h3>
+
+                        <p>
+                            Students must qualify for Pell
+                            Grants through FAFSA.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="eligibility-item">
+
+                    <div class="check">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Academic merit
+                        </h3>
+
+                        <p>
+                            SPARC recognizes academically
+                            talented students pursuing
+                            qualifying STEM degrees.
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
 
-        <div class="degree-grid">
+        <div class="eligibility-panel">
 
-            <article class="degree-card">
-
-                <div class="degree-number">
-                    01 / FIELD
-                </div>
-
-                <h3>
-                    Artificial Intelligence
-                </h3>
-
-                <p>
-                    Build expertise in intelligent computing
-                    and emerging technologies.
-                </p>
-
-            </article>
+            <h3>
+                Automatic consideration
+            </h3>
 
 
-            <article class="degree-card">
+            <p>
 
-                <div class="degree-number">
-                    02 / FIELD
+                High school graduates and community college
+                transfer students from low-income families
+                who demonstrate academic merit are
+                automatically considered for SPARC
+                scholarships.
+
+            </p>
+
+
+            <div class="fa-note">
+
+                <strong>
+                    FAFSA is important.
+                </strong>
+
+                Scholarships are available to enrolling
+                students who qualify for Pell Grants
+                through FAFSA.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUALIFYING PROGRAMS
+========================================================= -->
+
+<section
+    class="programs"
+    id="programs">
+
+    <div class="container">
+
+        <div class="section-label">
+            Academic pathways
+        </div>
+
+
+        <h2 class="section-title">
+            Qualifying Programs
+        </h2>
+
+
+        <p class="section-intro">
+
+            Students pursuing the following School of Computing
+            degrees may qualify for a SPARC scholarship.
+
+        </p>
+
+
+        <h3 class="program-section-title">
+            Bachelor's Programs
+        </h3>
+
+
+        <div class="program-grid">
+
+
+            <article class="program-card">
+
+                <div class="program-type">
+                    Bachelor of Science
                 </div>
 
                 <h3>
                     Applied Mathematics
                 </h3>
 
-                <p>
-                    Develop quantitative and analytical
-                    problem-solving skills.
-                </p>
+            </article>
+
+
+            <article class="program-card">
+
+                <div class="program-type">
+                    Bachelor of Science
+                </div>
+
+                <h3>
+                    Artificial Intelligence
+                </h3>
 
             </article>
 
 
-            <article class="degree-card">
+            <article class="program-card">
 
-                <div class="degree-number">
-                    03 / FIELD
+                <div class="program-type">
+                    Bachelor of Science
+                </div>
+
+                <h3>
+                    Applied Cybersecurity and Information Technology
+                </h3>
+
+            </article>
+
+
+            <article class="program-card">
+
+                <div class="program-type">
+                    Bachelor of Science
                 </div>
 
                 <h3>
                     Computer Science
                 </h3>
 
-                <p>
-                    Prepare for careers across computing
-                    and technology.
-                </p>
-
             </article>
 
 
-            <article class="degree-card">
+            <article class="program-card">
 
-                <div class="degree-number">
-                    04 / FIELD
-                </div>
-
-                <h3>
-                    Cybersecurity
-                </h3>
-
-                <p>
-                    Develop skills to protect digital
-                    systems and information.
-                </p>
-
-            </article>
-
-
-            <article class="degree-card">
-
-                <div class="degree-number">
-                    05 / FIELD
+                <div class="program-type">
+                    Bachelor of Science
                 </div>
 
                 <h3>
                     Data Science
                 </h3>
 
-                <p>
-                    Use data, statistics, and computation
-                    to solve complex problems.
-                </p>
-
             </article>
 
 
-            <article class="degree-card">
+            <article class="program-card">
 
-                <div class="degree-number">
-                    06 / FIELD
+                <div class="program-type">
+                    Bachelor of Science
                 </div>
 
                 <h3>
                     Statistics
                 </h3>
 
-                <p>
-                    Build a strong foundation in statistical
-                    reasoning and analysis.
-                </p>
-
             </article>
 
         </div>
+
+
+        <h3 class="program-section-title">
+            Eligible Master's Continuation Programs
+        </h3>
+
+
+        <div class="program-grid">
+
+
+            <article class="program-card">
+                <div class="program-type">Master's</div>
+                <h3>Applied Mathematics</h3>
+            </article>
+
+
+            <article class="program-card">
+                <div class="program-type">Master of Science</div>
+                <h3>Applied Mathematics</h3>
+            </article>
+
+
+            <article class="program-card">
+                <div class="program-type">Master's</div>
+                <h3>Artificial Intelligence</h3>
+            </article>
+
+
+            <article class="program-card">
+                <div class="program-type">Master's</div>
+                <h3>Computer Science</h3>
+            </article>
+
+
+            <article class="program-card">
+                <div class="program-type">Master's</div>
+                <h3>Cybersecurity</h3>
+            </article>
+
+
+            <article class="program-card">
+                <div class="program-type">Master of Science</div>
+                <h3>Computer Science</h3>
+            </article>
+
+
+            <article class="program-card">
+                <div class="program-type">Master's</div>
+                <h3>Data Science</h3>
+            </article>
+
+
+            <article class="program-card">
+                <div class="program-type">Master of Science</div>
+                <h3>
+                    Computational Decision Science
+                    and Operations Research
+                </h3>
+            </article>
+
+
+            <article class="program-card">
+                <div class="program-type">Master's</div>
+                <h3>Cyber Forensics and Security</h3>
+            </article>
+
+
+            <article class="program-card">
+                <div class="program-type">Master of Science</div>
+                <h3>
+                    Applied Cybersecurity and
+                    Digital Forensics
+                </h3>
+            </article>
+
+        </div>
+
+
+        <p class="program-note">
+
+            Program names above follow the current Illinois Tech
+            SPARC Scholarship page.
+
+        </p>
 
     </div>
 
 </section>
 
 
-<!-- ================= BENEFITS ================= -->
+<!-- =========================================================
+     BENEFITS
+========================================================= -->
 
-<section>
+<section
+    class="benefits">
 
     <div class="container">
 
-        <div class="section-kicker">
-            Scholar support
+        <div class="section-label">
+            Beyond financial support
         </div>
 
+
         <h2 class="section-title">
-            More than a scholarship.
+            A community built around your success.
         </h2>
 
+
         <p class="section-intro">
-            SPARC provides academic, professional, and
-            community support throughout the scholar's
-            university experience.
+
+            SPARC combines financial assistance with mentorship,
+            career development, experiential learning, and
+            opportunities to build a strong scholar community.
+
         </p>
 
 
-        <div class="benefits-grid">
+        <div class="benefit-grid">
+
 
             <article class="benefit-card">
 
-                <div class="benefit-icon">
+                <div class="benefit-number">
                     01
                 </div>
 
                 <h3>
-                    Faculty Mentors
+                    Academic Guidance
                 </h3>
 
                 <p>
-                    Academic guidance from faculty mentors
-                    who support scholars throughout their journey.
+
+                    Receive academic guidance from at least
+                    one School of Computing faculty mentor.
+
                 </p>
 
             </article>
@@ -1200,7 +2552,7 @@ footer {
 
             <article class="benefit-card">
 
-                <div class="benefit-icon">
+                <div class="benefit-number">
                     02
                 </div>
 
@@ -1209,8 +2561,11 @@ footer {
                 </h3>
 
                 <p>
-                    Career coaching and networking from
-                    alumni industry mentors.
+
+                    Connect with an alumni industry mentor
+                    for career coaching and professional
+                    networking.
+
                 </p>
 
             </article>
@@ -1218,18 +2573,20 @@ footer {
 
             <article class="benefit-card">
 
-                <div class="benefit-icon">
+                <div class="benefit-number">
                     03
                 </div>
 
                 <h3>
-                    Peer Mentors
+                    Peer Support
                 </h3>
 
                 <p>
-                    Peer support to help scholars adjust
-                    to university culture and discover
+
+                    Upperclassman peer mentors help scholars
+                    adjust to university culture and discover
                     campus resources.
+
                 </p>
 
             </article>
@@ -1237,18 +2594,21 @@ footer {
 
             <article class="benefit-card">
 
-                <div class="benefit-icon">
+                <div class="benefit-number">
                     04
                 </div>
 
                 <h3>
-                    Financial Support
+                    Experiential Learning
                 </h3>
 
                 <p>
-                    The scholarship can be combined with
-                    other Illinois Tech scholarships and
-                    financial aid.
+
+                    Opportunities include open-ended real-life
+                    projects, internships, extracurricular
+                    activities, student organizations, and
+                    team competitions.
+
                 </p>
 
             </article>
@@ -1260,148 +2620,54 @@ footer {
 </section>
 
 
-<!-- ================= TIMELINE ================= -->
-
-<section class="timeline-section">
-
-    <div class="container">
-
-        <div class="section-kicker">
-            How it works
-        </div>
-
-        <h2 class="section-title">
-            A straightforward path to consideration.
-        </h2>
-
-        <p class="section-intro">
-            There is no formal separate application for SPARC.
-            Qualified applications are reviewed through the
-            university admissions process.
-        </p>
-
-
-        <div class="timeline">
-
-            <article class="timeline-step">
-
-                <div class="timeline-dot">
-                    01
-                </div>
-
-                <h3>
-                    Apply to Illinois Tech
-                </h3>
-
-                <p>
-                    Submit your university application through
-                    the regular admissions process.
-                </p>
-
-            </article>
-
-
-            <article class="timeline-step">
-
-                <div class="timeline-dot">
-                    02
-                </div>
-
-                <h3>
-                    Complete FAFSA
-                </h3>
-
-                <p>
-                    Domestic students seeking consideration
-                    submit FAFSA and must qualify for a Pell
-                    Grant under the institution's definition
-                    of low-income.
-                </p>
-
-            </article>
-
-
-            <article class="timeline-step">
-
-                <div class="timeline-dot">
-                    03
-                </div>
-
-                <h3>
-                    SPARC Review
-                </h3>
-
-                <p>
-                    Applications that meet the program criteria
-                    are reviewed by the SPARC team.
-                </p>
-
-            </article>
-
-
-            <article class="timeline-step">
-
-                <div class="timeline-dot">
-                    04
-                </div>
-
-                <h3>
-                    Interview &amp; Selection
-                </h3>
-
-                <p>
-                    Top candidates may be interviewed remotely
-                    before scholarship offers are made.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= MENTORING ================= -->
+<!-- =========================================================
+     MENTORING
+========================================================= -->
 
 <section
+    class="mentoring"
     id="mentoring">
 
     <div class="container">
 
-        <div class="section-kicker">
-            Mentoring program
+        <div class="section-label">
+            Three-pronged mentorship
         </div>
+
 
         <h2 class="section-title">
             Three mentors. One connected community.
         </h2>
 
+
         <p class="section-intro">
-            SPARC takes a three-pronged approach to mentorship
-            covering academic development, campus life, career
-            preparation, and professional growth.
+
+            SPARC provides multiple avenues for mentorship
+            throughout a scholar's academic and professional
+            development.
+
         </p>
 
 
         <div class="mentor-grid">
 
+
             <article class="mentor-card">
 
                 <div class="mentor-tag">
-                    01 / Peer
+                    01 / Faculty
                 </div>
 
                 <h3>
-                    Peer Mentorship
+                    Academic Mentor
                 </h3>
 
                 <p>
-                    Peer mentors help scholars navigate academic,
-                    co-curricular, extracurricular, and professional
-                    issues from the perspective of fellow students
-                    who have faced similar challenges.
+
+                    Scholars receive academic guidance from
+                    at least one School of Computing faculty
+                    mentor.
+
                 </p>
 
             </article>
@@ -1410,18 +2676,19 @@ footer {
             <article class="mentor-card">
 
                 <div class="mentor-tag">
-                    02 / Faculty
+                    02 / Industry
                 </div>
 
                 <h3>
-                    Faculty Mentorship
+                    Alumni Industry Mentor
                 </h3>
 
                 <p>
-                    Each scholar will be paired with at least one
-                    faculty mentor from the College of Computing,
-                    selected from a carefully chosen and trained
-                    cohort of mentors.
+
+                    Alumni industry mentors provide career
+                    coaching and networking opportunities
+                    connected to professional development.
+
                 </p>
 
             </article>
@@ -1430,18 +2697,19 @@ footer {
             <article class="mentor-card">
 
                 <div class="mentor-tag">
-                    03 / Industry
+                    03 / Peer
                 </div>
 
                 <h3>
-                    Industry Mentorship
+                    Upperclassman Peer Mentor
                 </h3>
 
                 <p>
-                    Scholars will have the opportunity to be paired
-                    with an industry mentor from their field of
-                    interest who serves as a career coach and
-                    professional role model.
+
+                    Peer mentors help scholars adjust to
+                    university culture and discover campus
+                    resources.
+
                 </p>
 
             </article>
@@ -1452,12 +2720,12 @@ footer {
         <div class="mentor-callout">
 
             <strong>
-                SPARC Scholars Sphere:
+                Mentorship is only one part of the SPARC experience.
             </strong>
 
-            an interactive digital hub designed to facilitate
-            communication and resource sharing among scholars
-            and mentors.
+            Scholars can also participate in real-life projects,
+            internships, extracurricular activities, student-led
+            organizations, and team competitions.
 
         </div>
 
@@ -1466,7 +2734,9 @@ footer {
 </section>
 
 
-<!-- ================= ACTIVITIES ================= -->
+<!-- =========================================================
+     ACTIVITIES
+========================================================= -->
 
 <section
     class="activities"
@@ -1474,96 +2744,145 @@ footer {
 
     <div class="container">
 
-        <div class="section-kicker">
-            Community &amp; career
+        <div class="section-label">
+            Student experience
         </div>
 
+
         <h2 class="section-title">
-            Activities &amp; Events
+            Activities &amp; Opportunities
         </h2>
 
+
         <p class="section-intro">
-            Community-building and career-advancing opportunities
-            help scholars connect with one another, alumni,
-            industry professionals, and the broader Illinois Tech
-            community.
+
+            SPARC encourages scholars to connect their classroom
+            learning with practical experiences and a strong
+            student community.
+
         </p>
 
 
         <div class="activity-grid">
 
+
             <article class="activity-card">
+
+                <div class="activity-icon">
+                    01
+                </div>
+
                 <h3>
-                    Welcome &amp; Orientation
+                    Real-Life Projects
                 </h3>
 
                 <p>
-                    Welcome retreats and orientation activities
-                    help scholars begin their university journey.
+
+                    Apply classroom knowledge to open-ended,
+                    real-life projects.
+
                 </p>
+
             </article>
 
 
             <article class="activity-card">
+
+                <div class="activity-icon">
+                    02
+                </div>
+
                 <h3>
-                    Team Building
+                    Internships
                 </h3>
 
                 <p>
-                    Community and outdoor activities create
-                    opportunities for scholars to connect
-                    and collaborate.
+
+                    Explore opportunities to gain practical
+                    experience through internships.
+
                 </p>
+
             </article>
 
 
             <article class="activity-card">
+
+                <div class="activity-icon">
+                    03
+                </div>
+
                 <h3>
-                    Resume &amp; Career Sessions
+                    Student Organizations
                 </h3>
 
                 <p>
-                    Resume reviews, career development events,
-                    and professional preparation activities
-                    support career readiness.
+
+                    Build community and develop interests
+                    through student-led organizations.
+
                 </p>
+
             </article>
 
 
             <article class="activity-card">
+
+                <div class="activity-icon">
+                    04
+                </div>
+
                 <h3>
-                    Industry &amp; Alumni Panels
+                    Team Competitions
                 </h3>
 
                 <p>
-                    Panel discussions and networking opportunities
-                    connect scholars with professionals and alumni.
+
+                    Collaborate with peers through
+                    team-based competitions.
+
                 </p>
+
             </article>
 
 
             <article class="activity-card">
+
+                <div class="activity-icon">
+                    05
+                </div>
+
                 <h3>
-                    National Laboratory Visits
+                    Extracurricular Activities
                 </h3>
 
                 <p>
-                    Planned opportunities include visits to nearby
-                    national laboratories such as Argonne and Fermi.
+
+                    Participate in activities that strengthen
+                    the SPARC scholar cohort.
+
                 </p>
+
             </article>
 
 
             <article class="activity-card">
+
+                <div class="activity-icon">
+                    06
+                </div>
+
                 <h3>
-                    Competitions &amp; Conferences
+                    Cohort Building
                 </h3>
 
                 <p>
-                    Scholars may have opportunities to attend
-                    conferences and competitions in mathematics,
-                    modeling, data science, cybersecurity, and coding.
+
+                    Develop connections with other students
+                    pursuing STEM degrees.
+
                 </p>
+
             </article>
 
         </div>
@@ -1573,46 +2892,71 @@ footer {
 </section>
 
 
-<!-- ================= NEWS ================= -->
+<!-- =========================================================
+     NEWS / NSF
+========================================================= -->
 
-<section id="news">
+<section
+    class="news"
+    id="news">
 
     <div class="container">
 
-        <div class="section-kicker">
-            Latest
+        <div class="section-label">
+            News &amp; recognition
         </div>
 
+
         <h2 class="section-title">
-            Announcements &amp; News
+            SPARCing Opportunity
         </h2>
 
+
         <p class="section-intro">
-            Follow major SPARC program developments and
-            future scholar announcements.
+
+            The SPARC Scholarship is supported by a major
+            National Science Foundation investment in STEM
+            education and student success.
+
         </p>
 
 
         <div class="news-grid">
 
+
             <article class="news-card featured">
 
                 <div class="news-label">
-                    Program announcement
+                    National Science Foundation
                 </div>
 
+
                 <h3>
-                    SPARC Scholarship receives prestigious
-                    NSF grant support
+                    SPARC is supported by a $2 million NSF grant.
                 </h3>
 
+
                 <p>
-                    The SPARC program is supported by a
-                    National Science Foundation grant.
-                    This space can later link to the official
-                    Illinois Tech news story once the approved
-                    URL is added.
+
+                    The Supporting Pathways for Advancing Readiness
+                    in Computing scholarship is supported by a
+                    $2 million National Science Foundation grant
+                    and is designed to help high-performing students
+                    from low-income households enrolled in School
+                    of Computing programs.
+
                 </p>
+
+
+                <a
+                    href="https://www.iit.edu/admissions-aid/tuition-and-aid/scholarships/first-year-student-scholarships/sparc-scholarship"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="news-link">
+
+                    View official SPARC page →
+
+                </a>
 
             </article>
 
@@ -1620,18 +2964,33 @@ footer {
             <article class="news-card">
 
                 <div class="news-label">
-                    Coming soon
+                    NSF S-STEM
                 </div>
 
+
                 <h3>
-                    Meet the SPARC Scholars
+                    Investing in the STEM pipeline.
                 </h3>
 
+
                 <p>
-                    Scholar profiles, program updates, and
-                    future announcements can be added here
-                    as content is approved and available.
+
+                    SPARC is funded through the National Science
+                    Foundation's Scholarships in Science, Technology,
+                    Engineering, and Mathematics (S-STEM) grant.
+
                 </p>
+
+
+                <a
+                    href="https://www.nsf.gov/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="news-link">
+
+                    Learn about NSF →
+
+                </a>
 
             </article>
 
@@ -1642,7 +3001,145 @@ footer {
 </section>
 
 
-<!-- ================= FAQ ================= -->
+<!-- =========================================================
+     LEADERSHIP
+========================================================= -->
+
+<section
+    class="leadership"
+    id="leadership">
+
+    <div class="container">
+
+        <div class="section-label">
+            Program leadership
+        </div>
+
+
+        <h2 class="section-title">
+            Leadership Team
+        </h2>
+
+
+        <p class="section-intro">
+
+            SPARC is supported by faculty and academic leaders
+            across Illinois Tech's computing and quantitative
+            disciplines.
+
+        </p>
+
+
+        <div class="leadership-grid">
+
+
+            <article class="leader-card">
+
+                <div class="leader-photo">
+                    HK
+                </div>
+
+                <div class="leader-info">
+
+                    <h3>
+                        Hemanshu Kaul
+                    </h3>
+
+                    <p>
+
+                        Co-Director, M.S. in Computational
+                        Decision Science and Operations Research
+                        (CDSOR); Professor of Applied Mathematics.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="leader-card">
+
+                <div class="leader-photo">
+                    MB
+                </div>
+
+                <div class="leader-info">
+
+                    <h3>
+                        Mustafa Bilgic
+                    </h3>
+
+                    <p>
+
+                        Chair, Department of Computer Science;
+                        Professor of Computer Science; Program
+                        Director, Master of Artificial Intelligence.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="leader-card">
+
+                <div class="leader-photo">
+                    IC
+                </div>
+
+                <div class="leader-info">
+
+                    <h3>
+                        Igor Cialenco
+                    </h3>
+
+                    <p>
+
+                        Professor of Applied Mathematics.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="leader-card">
+
+                <div class="leader-photo">
+                    GG
+                </div>
+
+                <div class="leader-info">
+
+                    <h3>
+                        Gurram Gopal
+                    </h3>
+
+                    <p>
+
+                        Chair, Department of Information Technology
+                        and Management; Affiliate Professor,
+                        Stuart School of Business.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
 
 <section
     class="faq"
@@ -1650,113 +3147,164 @@ footer {
 
     <div class="container">
 
-        <div class="section-kicker">
+        <div class="section-label">
             Questions
         </div>
+
 
         <h2 class="section-title">
             Frequently Asked Questions
         </h2>
 
+
         <p class="section-intro">
-            Answers to common questions from prospective
-            students and counselors.
+
+            A quick guide to the key SPARC Scholarship
+            requirements and benefits.
+
         </p>
 
 
         <div class="faq-list">
 
+
             <details>
+
                 <summary>
-                    Who is eligible for the SPARC Scholarship?
+                    How much is the SPARC Scholarship?
                 </summary>
 
                 <p>
-                    Academically talented domestic students
-                    pursuing qualified bachelor's degree programs
-                    may be considered. High school graduates and
-                    qualified transfer students from low-income
-                    families are automatically considered.
+
+                    Qualified students may receive up to
+                    $15,000 annually for a bachelor's degree.
+                    Eligible continuation into a master's degree
+                    may provide up to $20,000 annually.
+
                 </p>
+
             </details>
 
 
             <details>
+
                 <summary>
-                    Do I need to submit a separate SPARC application?
+                    Who can be considered?
                 </summary>
 
                 <p>
-                    No. There is no formal separate application
-                    for SPARC. Students apply through the university
-                    admissions process and complete FAFSA as required.
+
+                    High school graduates and community college
+                    transfer students from low-income families
+                    who demonstrate academic merit may be
+                    automatically considered.
+
                 </p>
+
             </details>
 
 
             <details>
+
                 <summary>
-                    What is the application timeline?
+                    Do I need FAFSA?
                 </summary>
 
                 <p>
-                    SPARC follows the same timeline as regular
-                    Illinois Tech admissions for high school and
-                    transfer students.
+
+                    Yes. The official Illinois Tech page states
+                    that scholarships are available to enrolling
+                    students who qualify for Pell Grants through
+                    FAFSA.
+
                 </p>
+
             </details>
 
 
             <details>
+
                 <summary>
-                    Can I apply as a current student?
+                    What expenses can the scholarship cover?
                 </summary>
 
                 <p>
-                    The SPARC Scholarship is awarded to incoming
-                    students only. Once a student becomes a SPARC
-                    Scholar, the scholarship can be renewed each
-                    year if program requirements are met.
+
+                    Scholarship funds cover tuition and fees and
+                    may also be used to defray costs of room and
+                    board, textbooks, transportation, or laptops.
+
                 </p>
+
             </details>
 
 
             <details>
+
                 <summary>
-                    Can transfer students from community colleges apply?
+                    What mentorship is available?
                 </summary>
 
                 <p>
-                    Yes. Qualified transfer students are automatically
-                    considered for the SPARC Scholarship as outlined
-                    by the program.
+
+                    SPARC provides a three-pronged mentorship
+                    approach involving a School of Computing
+                    faculty mentor, an alumni industry mentor,
+                    and an upperclassman peer mentor.
+
                 </p>
+
             </details>
 
 
             <details>
+
                 <summary>
-                    Is the scholarship renewable?
+                    Can I continue into a master's degree?
                 </summary>
 
                 <p>
-                    Yes. Subject to maintaining the required academic
-                    status, the scholarship supports the scholar for
-                    the entirety of the degree: four years for a BS
-                    and five years for a combined BS and MS.
+
+                    SPARC scholars may combine their bachelor's
+                    degree with the master's degrees listed in
+                    the Qualifying Programs section.
+
                 </p>
+
             </details>
 
 
             <details>
+
                 <summary>
-                    Can I change my major?
+                    Which bachelor's programs qualify?
                 </summary>
 
                 <p>
-                    Yes, as long as the new major is one of the
-                    qualified SPARC majors listed above.
+
+                    The current official page lists Applied
+                    Mathematics, Artificial Intelligence, Applied
+                    Cybersecurity and Information Technology,
+                    Computer Science, Data Science, and Statistics.
+
                 </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    How can I contact SPARC?
+                </summary>
+
+                <p>
+
+                    Email the SPARC team at
+                    sparc@illinoistech.edu.
+
+                </p>
+
             </details>
 
         </div>
@@ -1766,7 +3314,9 @@ footer {
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- =========================================================
+     CONTACT
+========================================================= -->
 
 <section
     class="contact"
@@ -1774,53 +3324,128 @@ footer {
 
     <div class="container">
 
-        <div class="section-kicker">
+        <div class="section-label">
             Get in touch
         </div>
 
+
         <h2 class="section-title">
-            Have questions about SPARC?
+            Questions about SPARC?
         </h2>
 
+
         <p>
-            For more information about SPARC,
-            contact the program team.
+
+            Contact the SPARC team for more information
+            about the scholarship and program.
+
         </p>
 
+
         <a
-            class="contact-email"
-            href="mailto:sparc@illinoistech.edu">
+            href="mailto:sparc@illinoistech.edu"
+            class="contact-email">
+
             sparc@illinoistech.edu
+
         </a>
+
 
         <br>
 
+
         <a
-            class="button button-primary"
-            href="mailto:sparc@illinoistech.edu">
-            Contact SPARC
+            href="mailto:sparc@illinoistech.edu"
+            class="button button-primary">
+
+            Email SPARC
+
         </a>
 
     </div>
 
 </section>
 
+
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
-    <div class="container footer-inner">
+    <div class="container">
 
-        <div>
-            <strong>SPARC</strong>
-            · Illinois Institute of Technology
+        <div class="footer-grid">
+
+
+            <div>
+
+                <div class="footer-title">
+                    SPARC
+                </div>
+
+                <p>
+                    Supporting Pathways for Advancing
+                    Readiness in Computing.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Illinois Tech
+                </div>
+
+                <p>
+                    Illinois Institute of Technology
+                </p>
+
+                <p>
+                    Chicago, Illinois
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Contact
+                </div>
+
+                <p>
+                    <a href="mailto:sparc@illinoistech.edu">
+                        sparc@illinoistech.edu
+                    </a>
+                </p>
+
+                <p>
+                    <a
+                        href="https://www.iit.edu/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        illinoistech.edu
+
+                    </a>
+                </p>
+
+            </div>
+
+
         </div>
 
-        <div>
-            Supporting Pathways for Advancing Readiness in Computing
+
+        <div class="copyright">
+
+            © 2026 Illinois Institute of Technology ·
+            SPARC Scholarship
+
         </div>
 
     </div>
@@ -1828,46 +3453,58 @@ footer {
 </footer>
 
 
-<!-- ================= MOBILE MENU ================= -->
+<!-- =========================================================
+     MOBILE NAVIGATION
+========================================================= -->
 
 <script>
 
-const menuToggle =
-    document.querySelector(".menu-toggle");
+const menuButton =
+    document.querySelector(".menu-button");
 
 const navLinks =
     document.querySelector(".nav-links");
 
-menuToggle.addEventListener("click", function () {
 
-    const isOpen =
-        navLinks.classList.toggle("open");
+menuButton.addEventListener(
+    "click",
+    function () {
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen
-    );
+        const isOpen =
+            navLinks.classList.toggle("open");
 
-});
+        menuButton.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+    }
+);
+
 
 document
     .querySelectorAll(".nav-links a")
-    .forEach(function(link) {
+    .forEach(function (link) {
 
-        link.addEventListener("click", function() {
+        link.addEventListener(
+            "click",
+            function () {
 
-            navLinks.classList.remove("open");
+                navLinks.classList.remove("open");
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-        });
+            }
+        );
 
     });
 
 </script>
 
+
 </body>
+
 </html>
