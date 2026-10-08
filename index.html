@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SPARC | Illinois Institute of Technology</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #111827;
+            padding: 16px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f4c542;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #f4c542;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: linear-gradient(135deg, #111827, #243b64);
+            color: white;
+            padding: 110px 7%;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            color: #f4c542;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 750px;
+            color: #e5e7eb;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #f4c542;
+            color: #111827;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+
+        .button:hover {
+            opacity: 0.85;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .section-intro {
+            max-width: 800px;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 45px;
+        }
+
+        /* SCHOLARSHIP */
+
+        .scholarship {
+            background: #f7f8fa;
+        }
+
+        .degree-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            max-width: 1000px;
+        }
+
+        .degree {
+            background: white;
+            padding: 25px;
+            border-left: 5px solid #f4c542;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+
+        .degree h3 {
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        /* BENEFITS */
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .benefit {
+            padding: 30px;
+            background: #f7f8fa;
+            border-radius: 8px;
+        }
+
+        .benefit-number {
+            font-size: 30px;
+            font-weight: bold;
+            color: #f4c542;
+            margin-bottom: 10px;
+        }
+
+        .benefit h3 {
+            margin-bottom: 10px;
+        }
+
+        /* HOW IT WORKS */
+
+        .process {
+            background: #111827;
+            color: white;
+        }
+
+        .process .section-title {
+            color: white;
+        }
+
+        .process .section-intro {
+            color: #d1d5db;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .step {
+            border-top: 3px solid #f4c542;
+            padding-top: 20px;
+        }
+
+        .step-number {
+            color: #f4c542;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            margin: 10px 0;
+        }
+
+        /* MENTORING */
+
+        .mentor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .mentor {
+            padding: 35px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .mentor h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        /* EVENTS */
+
+        .events {
+            background: #f7f8fa;
+        }
+
+        .event-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .event {
+            background: white;
+            padding: 25px;
+            border-radius: 7px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .event h3 {
+            margin-bottom: 8px;
+        }
+
+        /* NEWS */
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .news-card {
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .news-card h3 {
+            margin-bottom: 12px;
+        }
+
+        /* FAQ */
+
+        .faq {
+            background: #f7f8fa;
+        }
+
+        details {
+            background: white;
+            margin-bottom: 12px;
+            padding: 20px 25px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        details p {
+            margin-top: 15px;
+            color: #555;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            background: #243b64;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            margin-bottom: 25px;
+            color: #e5e7eb;
+        }
+
+        .email {
+            color: #f4c542;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111827;
+            color: #aaa;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .degree-grid,
+            .benefits-grid,
+            .steps,
+            .mentor-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .degree-grid,
+            .benefits-grid,
+            .steps,
+            .mentor-grid,
+            .event-list,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 80px 6%;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">SPARC<span>.</span></div>
+
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#mentoring">Mentoring</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="about">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Illinois Institute of Technology
+        </div>
+
+        <h1>
+            Supporting Pathways for Advancing Readiness in Computing
+        </h1>
+
+        <p>
+            The SPARC Scholarship supports academically talented domestic
+            students pursuing bachelor's degrees in AI, applied mathematics,
+            computer science, cybersecurity, data science, and statistics,
+            with the option for continued support for a combined master's degree.
+        </p>
+
+        <a href="#benefits" class="button">
+            Explore SPARC
+        </a>
+
+        <a href="#faq" class="button secondary">
+            Frequently Asked Questions
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SCHOLARSHIP -->
+
+<section class="scholarship">
+
+    <h2 class="section-title">
+        The SPARC Scholarship
+    </h2>
+
+    <p class="section-intro">
+        High school graduates and transfer students from low-income families
+        who demonstrate academic merit are automatically considered for the
+        SPARC Scholarship.
+    </p>
+
+    <div class="degree-grid">
+
+        <div class="degree">
+            <h3>Artificial Intelligence</h3>
+            <p>Build expertise in intelligent computing and emerging technologies.</p>
+        </div>
+
+        <div class="degree">
+            <h3>Applied Mathematics</h3>
+            <p>Develop quantitative and analytical problem-solving skills.</p>
+        </div>
+
+        <div class="degree">
+            <h3>Computer Science</h3>
+            <p>Prepare for careers across computing and technology.</p>
+        </div>
+
+        <div class="degree">
+            <h3>Cybersecurity</h3>
+            <p>Develop skills to protect digital systems and information.</p>
+        </div>
+
+        <div class="degree">
+            <h3>Data Science</h3>
+            <p>Use data, statistics, and computation to solve complex problems.</p>
+        </div>
+
+        <div class="degree">
+            <h3>Statistics</h3>
+            <p>Build a strong foundation in statistical reasoning and analysis.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BENEFITS -->
+
+<section id="benefits">
+
+    <h2 class="section-title">
+        SPARC Scholarship Benefits
+    </h2>
+
+    <p class="section-intro">
+        SPARC provides academic, professional, and community support
+        throughout the scholar's university experience.
+    </p>
+
+    <div class="benefits-grid">
+
+        <div class="benefit">
+            <div class="benefit-number">01</div>
+            <h3>Faculty Mentors</h3>
+            <p>
+                Academic guidance and mentorship from faculty members.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-number">02</div>
+            <h3>Career Coaching</h3>
+            <p>
+                Career coaching and networking opportunities from alumni
+                industry mentors.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-number">03</div>
+            <h3>Peer Mentors</h3>
+            <p>
+                Peer support to help scholars adjust to university culture
+                and discover campus resources.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-number">04</div>
+            <h3>Financial Support</h3>
+            <p>
+                SPARC scholarships can be combined with other Illinois Tech
+                scholarships and financial aid.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section class="process">
+
+    <h2 class="section-title">
+        How SPARC Works
+    </h2>
+
+    <p class="section-intro">
+        There is no separate SPARC application. Eligible students are
+        considered through the university admissions process.
+    </p>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="step-number">01</div>
+            <h3>Apply to Illinois Tech</h3>
+            <p>
+                Submit your university application through the regular
+                admissions process.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">02</div>
+            <h3>Complete FAFSA</h3>
+            <p>
+                Domestic students seeking consideration must submit FAFSA
+                and qualify for a Pell Grant under the institution's
+                definition of low-income.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">03</div>
+            <h3>SPARC Review</h3>
+            <p>
+                Qualified applications are reviewed by the SPARC team.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">04</div>
+            <h3>Interview & Selection</h3>
+            <p>
+                Top candidates may be interviewed remotely before scholarship
+                offers are made.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MENTORING -->
+
+<section id="mentoring">
+
+    <h2 class="section-title">
+        Mentoring Program
+    </h2>
+
+    <p class="section-intro">
+        SPARC takes a three-pronged approach to mentorship, supporting
+        scholars throughout their academic journey and toward a successful
+        professional career.
+    </p>
+
+    <div class="mentor-grid">
+
+        <div class="mentor">
+            <h3>Peer Mentorship</h3>
+
+            <p>
+                Peer mentors help scholars navigate academic, co-curricular,
+                extracurricular, and professional issues from the perspective
+                of fellow students who have faced similar challenges.
+            </p>
+
+            <br>
+
+            <p>
+                They also help scholars meet other students and become
+                involved in campus life.
+            </p>
+        </div>
+
+        <div class="mentor">
+            <h3>Faculty Mentorship</h3>
+
+            <p>
+                Each scholar will be paired with at least one faculty mentor
+                from the College of Computing, selected from a carefully
+                chosen and trained cohort of mentors.
+            </p>
+        </div>
+
+        <div class="mentor">
+            <h3>Industry Mentorship</h3>
+
+            <p>
+                Scholars will have the opportunity to be paired with an
+                industry mentor from their field of interest.
+            </p>
+
+            <br>
+
+            <p>
+                Industry mentors serve as career coaches and professional
+                role models while providing relevant industry guidance.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EVENTS -->
+
+<section class="events" id="events">
+
+    <h2 class="section-title">
+        Activities & Events
+    </h2>
+
+    <p class="section-intro">
+        SPARC organizes community-building and career-advancing activities
+        while connecting scholars with the broader Illinois Tech community.
+    </p>
+
+    <div class="event-list">
+
+        <div class="event">
+            <h3>Welcome & Orientation</h3>
+            <p>
+                Welcome retreats and orientation activities help scholars
+                begin their university journey.
+            </p>
+        </div>
+
+        <div class="event">
+            <h3>Team Building</h3>
+            <p>
+                Outdoor and community-building activities create opportunities
+                for scholars to connect and collaborate.
+            </p>
+        </div>
+
+        <div class="event">
+            <h3>Career Development</h3>
+            <p>
+                Resume review sessions, career events, and professional
+                development opportunities prepare scholars for future careers.
+            </p>
+        </div>
+
+        <div class="event">
+            <h3>Industry & Alumni Panels</h3>
+            <p>
+                Scholars can learn from industry professionals and alumni
+                through panels and networking opportunities.
+            </p>
+        </div>
+
+        <div class="event">
+            <h3>National Laboratories</h3>
+            <p>
+                Planned visits include opportunities to learn about nearby
+                national laboratories such as Argonne and Fermi.
+            </p>
+        </div>
+
+        <div class="event">
+            <h3>Competitions & Conferences</h3>
+            <p>
+                Scholars can have opportunities to attend conferences,
+                competitions, and career development events in mathematics,
+                modeling, data science, cybersecurity, and coding.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NEWS -->
+
+<section>
+
+    <h2 class="section-title">
+        Announcements & News
+    </h2>
+
+    <p class="section-intro">
+        Stay up to date with SPARC announcements and program developments.
+    </p>
+
+    <div class="news-grid">
+
+        <div class="news-card">
+            <h3>SPARC Receives Major NSF Support</h3>
+
+            <p>
+                The SPARC Scholarship program has received a prestigious
+                National Science Foundation grant supporting the program.
+            </p>
+        </div>
+
+        <div class="news-card">
+            <h3>Scholar Announcements</h3>
+
+            <p>
+                Updates about SPARC scholars, program activities, and
+                future announcements will appear here.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="faq" id="faq">
+
+    <h2 class="section-title">
+        Frequently Asked Questions
+    </h2>
+
+    <details>
+        <summary>Who is eligible for the SPARC Scholarship?</summary>
+
+        <p>
+            Academically talented domestic students pursuing qualified
+            bachelor's degree programs may be considered. High school
+            graduates and qualified transfer students from low-income
+            families are automatically considered.
+        </p>
+    </details>
+
+    <details>
+        <summary>Do I need to submit a separate SPARC application?</summary>
+
+        <p>
+            No. There is no formal separate application for SPARC.
+            Students apply through the university admissions process and
+            complete FAFSA as required.
+        </p>
+    </details>
+
+    <details>
+        <summary>What is the application timeline?</summary>
+
+        <p>
+            SPARC follows the same timeline as regular Illinois Tech
+            admissions for high school and transfer students.
+        </p>
+    </details>
+
+    <details>
+        <summary>Can current Illinois Tech students apply?</summary>
+
+        <p>
+            The SPARC Scholarship is awarded to incoming students only.
+            Once awarded, the scholarship can be renewed each year if
+            program requirements are met.
+        </p>
+    </details>
+
+    <details>
+        <summary>Can transfer students apply?</summary>
+
+        <p>
+            Yes. Qualified transfer students, including students transferring
+            from community colleges, are automatically considered as outlined
+            by the program.
+        </p>
+    </details>
+
+    <details>
+        <summary>Is the scholarship renewable?</summary>
+
+        <p>
+            Yes. The scholarship can support students for the entirety of
+            their degree, subject to maintaining the required academic status.
+        </p>
+    </details>
+
+    <details>
+        <summary>Can I change my major?</summary>
+
+        <p>
+            Yes, provided the new major is one of the qualified SPARC majors.
+        </p>
+    </details>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <h2>Have Questions?</h2>
+
+    <p>
+        For more information about SPARC, contact the program team.
+    </p>
+
+    <div class="email">
+        sparc@illinoistech.edu
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        Supporting Pathways for Advancing Readiness in Computing
+    </p>
+
+    <p>
+        Illinois Institute of Technology
+    </p>
+
+</footer>
+
+</body>
+</html>
