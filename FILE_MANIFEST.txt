@@ -1,22 +1,6 @@
-README.md
-about.html
-activities.html
-assets/README-LOGO.txt
-assets/script.js
-assets/style.css
-contact.html
-faq.html
-images/hero-abstract.svg
-images/illinois-tech-lockup.svg
-images/pi-gurram.svg
-images/pi-hemanshu.svg
-images/pi-igor.svg
-images/pi-mustafa.svg
-index.html
-mentor-matching.html
-mentoring.html
-news.html
-programs.html
-scholars.html
-scholarship.html
-team.html
+SPARC Scholarship Program website
+Pages: index.html, mentoring.html, team.html, scholars.html, activities-news.html
+Navigation: Home | Mentoring | Team | Scholars | Activities & News
+FAQ: retained on index.html; no standalone faq.html
+October 27, 2026 event: three photo placeholders
+Internal mentor-matching page: not included
